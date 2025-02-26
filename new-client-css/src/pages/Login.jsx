@@ -10,7 +10,7 @@ function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post('${process.env.VITE_BACKEND_URL}/api/auth/login', { email, password });
+      const res = await axios.post(`${process.env.VITE_BACKEND_URL}/api/auth/login`, { email, password });
       localStorage.setItem('token', res.data.token);
       navigate('/dashboard');
     } catch (err) {

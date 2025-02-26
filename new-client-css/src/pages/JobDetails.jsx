@@ -16,7 +16,7 @@ function JobDetails() {
     const token = localStorage.getItem('token');
     if (!token) return alert('Please log in to apply');
     try {
-      await axios.post('${process.env.VITE_BACKEND_URL}/api/applications/apply', { jobId: id }, {
+      await axios.post(`${process.env.VITE_BACKEND_URL}/api/applications/apply`, { jobId: id }, {
         headers: { Authorization: `Bearer ${token}` }
       });
       alert('Application submitted successfully!');

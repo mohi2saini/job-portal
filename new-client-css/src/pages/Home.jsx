@@ -4,12 +4,23 @@ import JobCard from '../components/JobCard';
 
 function Home() {
   const [jobs, setJobs] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    axios.get('${process.env.VITE_BACKEND_URL}/api/jobs')
-      .then(res => setJobs(res.data))
-      .catch(err => console.log(err));
+    setLoading(true);
+    axios.get(`${process.env.VITE_BACKEND_URL}/api/jobs`)
+      .then(res => {
+        setJobs(Array.isArray(res.data) ? res.data : []);
+        setLoading(false);
+      })
+      .catch(err => {
+        console.error('Error fetching jobs:', err);
+        setJobs([]); // Set to empty array on error to prevent .map() errors
+        setLoading(false);
+      });
   }, []);
+
+  if (loading) return <div className="content"><p className="loading">Loading...</p></div>;
 
   return (
     <div className="content">
