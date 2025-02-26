@@ -43,6 +43,7 @@ function PostJob() {
           placeholder="Job Title"
           className="input"
           required
+          maxLength={100}
         />
         <input
           type="text"
@@ -51,6 +52,7 @@ function PostJob() {
           placeholder="Company"
           className="input"
           required
+          maxLength={100}
         />
         <textarea
           value={description}
@@ -59,6 +61,7 @@ function PostJob() {
           className="input"
           rows="4"
           required
+          maxLength={1000}
         />
         <input
           type="text"
@@ -67,6 +70,7 @@ function PostJob() {
           placeholder="Eligibility (e.g., B.Tech, 2+ years)"
           className="input"
           required
+          maxLength={500}
         />
         <select
           value={role}
