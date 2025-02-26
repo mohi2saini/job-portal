@@ -1,0 +1,24 @@
+.section-title {
+    color: #2c3e50;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+  
+  .job-date {
+    color: #7f8c8d;
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+  }
+  
+  .job-status {
+    color: #e74c3c;
+    font-weight: bold;
+  }
+  
+  @media (max-width: 768px) {
+    .section-title {
+      font-size: 1.2rem;
+    }
+  }
