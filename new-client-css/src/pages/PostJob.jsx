@@ -20,7 +20,7 @@ function PostJob() {
     }
 
     try {
-      const res = await axios.post('http://localhost:5000/api/jobs', 
+      const res = await axios.post('${process.env.VITE_BACKEND_URL}/api/jobs', 
         { title, company, description, eligibility, role },
         { headers: { Authorization: `Bearer ${token}` } }
       );

@@ -7,7 +7,7 @@ function JobDetails() {
   const [job, setJob] = useState(null);
 
   useEffect(() => {
-    axios.get(`http://localhost:5000/api/jobs/${id}`)
+    axios.get(`${process.env.VITE_BACKEND_URL}/api/jobs/${id}`)
       .then(res => setJob(res.data))
       .catch(err => console.log(err));
   }, [id]);
@@ -16,7 +16,7 @@ function JobDetails() {
     const token = localStorage.getItem('token');
     if (!token) return alert('Please log in to apply');
     try {
-      await axios.post('http://localhost:5000/api/applications/apply', { jobId: id }, {
+      await axios.post('${process.env.VITE_BACKEND_URL}/api/applications/apply', { jobId: id }, {
         headers: { Authorization: `Bearer ${token}` }
       });
       alert('Application submitted successfully!');

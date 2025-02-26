@@ -6,7 +6,7 @@ function Home() {
   const [jobs, setJobs] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:5000/api/jobs')
+    axios.get('${process.env.VITE_BACKEND_URL}/api/jobs')
       .then(res => setJobs(res.data))
       .catch(err => console.log(err));
   }, []);

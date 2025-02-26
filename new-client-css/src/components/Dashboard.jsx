@@ -22,12 +22,12 @@ function Dashboard() {
       const role = decoded.role;
 
       if (role === 'student') {
-        const res = await axios.get('http://localhost:5000/api/applications/my-applications', {
+        const res = await axios.get('${process.env.VITE_BACKEND_URL}/api/applications/my-applications', {
           headers: { Authorization: `Bearer ${token}` },
         });
         setData(res.data || []);
       } else if (role === 'recruiter') {
-        const res = await axios.get('http://localhost:5000/api/jobs', {
+        const res = await axios.get('${process.env.VITE_BACKEND_URL}/api/jobs', {
           headers: { Authorization: `Bearer ${token}` },
         });
         setData(res.data.filter(job => job.postedBy.toString() === decoded.id.toString()) || []);
